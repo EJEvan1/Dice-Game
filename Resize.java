@@ -3,6 +3,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 class Resize {
 
@@ -34,5 +35,13 @@ class Resize {
   public BufferedImage resize(String inputImagePath, double percent) throws IOException {
     BufferedImage img = ImageIO.read(new File(inputImagePath));
     return resize(img, percent);
+  }
+
+  public ImageIcon imageIconConvert(String fileName) throws IOException{
+    BufferedImage img = ImageIO.read(new File(fileName));
+    return new ImageIcon(img);
+  }
+  public ImageIcon imageIconConvert(BufferedImage img){
+    return new ImageIcon(img);
   }
 }

@@ -19,7 +19,7 @@ class RemainderScreen{
     JLabel warningUpper = new JLabel("GRAB SIX SIDED DICE");
     warningUpper.setBounds(90, 20, 500, 50);
     System.out.println("creating image");
-  BufferedImage dice = ImageIO.read(new File("fileImages/smokey.jpg"));
+  BufferedImage dice = ImageIO.read(new File("fileImages/diceTextures/face6.jpg"));
    dice = resize.resize(dice, dice.getWidth() /2, dice.getHeight() /2);
     System.out.println("Image created");
    ImageIcon image = new ImageIcon(dice);
@@ -34,7 +34,7 @@ class RemainderScreen{
       public void actionPerformed(ActionEvent e){
         timerFunc(false);
         displayRemainder.setVisible(false);
-        Automous.autoPlay();
+        //Automous.autoPlay();
       }
     });
     

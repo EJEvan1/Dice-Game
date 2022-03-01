@@ -6,7 +6,7 @@ import java.util.Arrays;
 //First 1 dimension is used the Roll count example: dataRoll[0][0] = "Roll X" and dataRoll[0][1] = Actual data value
 class whiteBoard {
   // String is set to a maxium 50 by 50 array size to avoid out of bounds
-  public static String[][] dataRoll = new String[50][2];
+  public static String[][] dataRoll = new String[9999][2];
   private static final String BLACK = "\u001B[30m"; // BLACK
   private static final String RED = "\u001B[31m"; // RED
   private static final String GREEN = "\u001B[32m"; // GREEN
@@ -44,7 +44,7 @@ class whiteBoard {
     }
   }
 
-  public static int getValueInt(int a, int b) {
+  public static int getValueInt(int a, int b) throws Exception {
     return Integer.valueOf(dataRoll[a][b]);
   }
 
@@ -54,11 +54,11 @@ class whiteBoard {
 
   public static void deleteAllValues() {
     dataRoll = new String[50][2];
-    System.out.println("Host Controller: dataRoll's values were all set to null");
+    comUser.cnslWrt("All values were deleted");
   }
 
   public static void addRoll(int rollNumber, int value) {
-    if (String.valueOf(rollNumber) == null) {
+    if (String.valueOf(rollNumber) == null || rollNumber == 0) {
       for (int i = 0; i < dataRoll.length; i++) {
         if (dataRoll[i][0] == null) {
           dataRoll[i][0] = "Roll " + (i + 1);
@@ -69,12 +69,13 @@ class whiteBoard {
     }
     dataRoll[rollNumber - 1][1] = String.valueOf(value);
   }
+
   public static String[][] getData(){
     String[][] dataRollCompressed = Arrays.copyOf(dataRoll, countTillNull());
     //this a primative way of doing it
     return dataRollCompressed;
   }
-  private static int countTillNull(){
+  public static int countTillNull(){
     for (int i = 0; i < dataRoll.length; i++){
       if (dataRoll[i][0] == null && dataRoll[i][1] == null){
         return i;

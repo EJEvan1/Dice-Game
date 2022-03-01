@@ -8,7 +8,7 @@ public class GUI{
   //Create Menu Interface
   // Allows user to select what mode they want (automated or player-controlled)
     JFrame menu = new JFrame("Menu");
-    menu.setSize(375, 250);
+    menu.setSize(350, 250);
     menu.setLayout(null);
 
   //Create Title cards for the panel
@@ -27,7 +27,7 @@ public class GUI{
     automatedButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         menu.setVisible(false);
-        Automous.autoPlay();
+        try{Automous.autoPlay();} catch (Exception t){}
       }
     });
 
