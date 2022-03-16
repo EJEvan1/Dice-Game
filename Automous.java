@@ -19,7 +19,8 @@ class Automous {
   private static JLabel diceNum;
   private static boolean imageDis=true, winCond=false;
   public static void autoPlay() throws Exception{
-  autoBoard = new JFrame("Automous");
+  //Runtime.getRuntime().traceMethodCalls(true);
+    autoBoard = new JFrame("Automous");
   int numOfSides = 6;
    autoBoard.setSize(450,300);
     menuItems();
@@ -30,6 +31,7 @@ class Automous {
     autoBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     autoBoard.setVisible(true);
     diceDisplay(diceRoll(numOfSides));
+    
   }
   private static int diceRoll(int numOfSides){
    Random rad = new Random();
